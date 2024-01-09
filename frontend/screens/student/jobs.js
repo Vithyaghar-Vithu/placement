@@ -2,10 +2,8 @@ import React,{ useState } from 'react';
 import { ImageBackground, StyleSheet, Text, TextInput, TouchableHighlight, TouchableOpacity, View, useColorScheme } from 'react-native';
 import Jobs from '../../components/Job';
 import Header from '../../components/header';
-import { NavigationContainer } from '@react-navigation/native'
-import BottomTabNavigator from '../../route/bottomBarNotification';
 
-export const JobsPage = ({ route , navigation }) => {
+export const JobsPage = (/*{ route , navigation }*/) => {
   // const colorScheme = useColorScheme();
   return (
     

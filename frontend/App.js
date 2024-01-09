@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Appearance, ImageBackground, StyleSheet, Text, View, useColorScheme } from 'react-native';
 import LandingPage from './screens/common/landing_page';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import StudentLogin from './screens/student/student_login';
 import AdminLogin from './screens/admin/admin_login';
 import CompanyLogin from './screens/company/company_login';
@@ -19,60 +19,52 @@ export default function App() {
   // const colorScheme = useColorScheme('light');
   // useEffect(() => {Appearance.setColorScheme('light')},[]);
   const Stack = createStackNavigator();
+  const [isLogin, setisLogin] = useState(true);
+  if (isLogin) {
+    return(
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <BottomTabNavigator/>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    );
+  }
+  else{
+    return (
 
-  return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ header:() => <Header/> }} >
-          <Stack.Screen 
-            name="LandingPage" 
-            component={LandingPage} 
-            options={{
-              headerShown:false,
-            }}
-          />
-        
-          <Stack.Screen 
-            name="StudentLogin" 
-            component={StudentLogin} 
-            options={{
-              headerShown:false,
-            }}
-          />
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Stack.Navigator /*screenOptions={{ header:() => <Header/> }}*/ >
+  
+  
+            <Stack.Screen name="LandingPage"        component={LandingPage}   options={{headerShown:false,}} />
+  
+            <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
           
-          <Stack.Screen 
-            name="AdminLogin" 
-            component={AdminLogin}
-          />
-
-          <Stack.Screen 
-            name="DashboardPage" 
-            component={DashboardPage}
-            options={{
-              title:"Dashboard",
-            }}
-          />
-          <Stack.Screen 
-            name="BottomTabNavigator" 
-            component={BottomTabNavigator}
-          />
-          
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
-    // <StudentLogin/>
-    // <AdminLogin/>
-    // <CompanyLogin/>
-    // <Profile/>
-    // <JobsPage/>
-    // <NotificationPage/>
-    // <DashboardPage/>
-    
-  );
+            <Stack.Screen name="StudentLogin"       component={StudentLogin}  options={{headerShown:false,}} />
+            
+            <Stack.Screen name="AdminLogin"         component={AdminLogin} />
+  
+            <Stack.Screen name="DashboardPage"      component={DashboardPage} options={{ title:"Dashboard", headerShown:false, }} />
+  
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+      // <View style={styles.container}>
+      //   <Text>Open up App.js to start working on your app!</Text>
+      //   <StatusBar style="auto" />
+      // </View>
+      // <StudentLogin/>
+      // <AdminLogin/>
+      // <CompanyLogin/>
+      // <Profile/>
+      // <JobsPage/>
+      // <NotificationPage/>
+      // <DashboardPage/>
+      
+    );
+  }
+  
 }
 
 const styles = StyleSheet.create({
