@@ -8,8 +8,6 @@ import BottomTabNavigator from '../../route/bottomBarNotification';
 export const JobsPage = ({ route , navigation }) => {
   // const colorScheme = useColorScheme();
   return (
-    // <NavigatorContainer>
-    // <Navi
     
       <View style={styles.openingPage}>
         <ImageBackground source={require('../../assets/bg.png')} resizeMode='repeat' imageStyle= {{opacity:0.1}}>
@@ -41,14 +39,11 @@ export const JobsPage = ({ route , navigation }) => {
                       <Jobs/>
                   </View>
 
-                  {/* <BottomTabNavigator/> */}
-
               </View>
           </View>
+
         </ImageBackground>
       </View>
-
-    // </NavigatorContainer>
   );
 };
 

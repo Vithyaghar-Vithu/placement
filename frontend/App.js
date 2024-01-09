@@ -12,6 +12,8 @@ import DashboardPage from './screens/student/dashboard';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Header from './components/header';
+import BottomTabNavigator from './route/bottomBarNotification';
+import {  SafeAreaProvider,  useSafeAreaInsets,} from 'react-native-safe-area-context';
 
 export default function App() {
   // const colorScheme = useColorScheme('light');
@@ -19,65 +21,45 @@ export default function App() {
   const Stack = createStackNavigator();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          header:() => <Header/>,
-          // headerTintColor: 'null',
-        }}
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ header:() => <Header/> }} >
+          <Stack.Screen 
+            name="LandingPage" 
+            component={LandingPage} 
+            options={{
+              headerShown:false,
+            }}
+          />
         
-      >
-        <Stack.Screen 
-          name="LandingPage" 
-          component={LandingPage} 
-          options={{
-            headerTintColor:"#F0DAC5",
-            title:"",
-            headerShown:false,
-          }}
-        />
-      
-        <Stack.Screen 
-          name="StudentLogin" 
-          component={StudentLogin} 
-          options={{
-            headerStyle:{
-              backfaceVisibility:"hidden",
-              backgroundColor:'rgba(0, 0, 0, 0)',
-              headerTintColor:"#F0DAC5"
-              
-            },
-            headerTintColor:"#F0DAC5",
-            title:"",
-          }}
-        />
-        
-        <Stack.Screen 
-          name="AdminLogin" 
-          component={AdminLogin}
-          options={{
-            title:"",
-          }}
-        />
+          <Stack.Screen 
+            name="StudentLogin" 
+            component={StudentLogin} 
+            options={{
+              headerShown:false,
+            }}
+          />
+          
+          <Stack.Screen 
+            name="AdminLogin" 
+            component={AdminLogin}
+          />
 
-        <Stack.Screen 
-          name="Profile" 
-          component={Profile}
-          options={{
-            title:"Profile",
-          }}
-        />
-
-        <Stack.Screen 
-          name="DashboardPage" 
-          component={DashboardPage}
-          options={{
-            title:"Dashboard",
-          }}
-        />
-      </Stack.Navigator>
-      
-    </NavigationContainer>
+          <Stack.Screen 
+            name="DashboardPage" 
+            component={DashboardPage}
+            options={{
+              title:"Dashboard",
+            }}
+          />
+          <Stack.Screen 
+            name="BottomTabNavigator" 
+            component={BottomTabNavigator}
+          />
+          
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
     // <View style={styles.container}>
     //   <Text>Open up App.js to start working on your app!</Text>
     //   <StatusBar style="auto" />

@@ -11,23 +11,27 @@ import Header from "../components/header";
 const Tab = createMaterialBottomTabNavigator();
 
 // const StudentTab=[
-//     { route: 'Dashboard',        label: 'Dashboard',     type: '', icon: 'home', component: Screen, tabBarColor: '#50223C'},
+//     { route: 'DashboardPage',    label: 'Dashboard',     type: '', icon: 'home', component: Screen, tabBarColor: '#50223C'},
 //     { route: 'JobsPage',         label: 'Jobs',          type: '', icon: 'home', component: Screen, tabBarColor: '#50223C'},
-//     { route: 'ProfilePage',      label: 'Profile',       type: '', icon: 'home', component: Screen, tabBarColor: '#50223C'},
+//     { route: 'Profile',          label: 'Profile',       type: '', icon: 'home', component: Screen, tabBarColor: '#50223C'},
 //     { route: 'NotificationPage', label: 'Notifications', type: '', icon: 'home', component: Screen, tabBarColor: '#50223C'},
 // ];
 
 export default function BottomTabNavigator() {
   return (
     <Tab.Navigator
+        tabBarOptions={{
+          style:{
+            backgroundColor:"#50223C",
+            width: 344,
+            height: 66,
+        
+          }
+        }}
         initialRouteName='DashboardPage'
         activeColor='#50223C'
         inactiveColor='#F0DAC5'
-        barStyle={{
-            width:344,
-            height:66,
-            backgroundColor:"#50223C",
-        }}
+        barStyle={styles.navBar}
     >
       <Tab.Screen name="Dashboard" component={DashboardPage} />
       <Tab.Screen name="Jobs" component={JobsPage} />
@@ -38,5 +42,10 @@ export default function BottomTabNavigator() {
 }
 
 const styles = StyleSheet.create({
-    
+    navBar:{
+      width:344,
+      height:66,
+      borderRadius:20,
+      backgroundColor:"#50223C"
+    },
 });

@@ -94,8 +94,7 @@ const styles = StyleSheet.create({
   },
   innerContainer:{
     alignItems:'center',
-    paddingTop:50,
-   
+    paddingTop:120,
     justifyContent: 'center',
     // backgroundColor:'#000'
   },

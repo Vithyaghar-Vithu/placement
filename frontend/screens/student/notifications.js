@@ -51,10 +51,10 @@ export const NotificationPage = ({ route , navigation }) => {
 
               </View>
           </View>
+
+          <BottomTabNavigator/>
         </ImageBackground>
       </View>
-
-    // </NavigatorContainer>
   );
 };
 

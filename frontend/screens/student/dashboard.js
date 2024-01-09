@@ -9,9 +9,7 @@ import Applications from '../../components/applications';
 export const DashboardPage = ({ route , navigation }) => {
   // const colorScheme = useColorScheme();
   return (
-    // <NavigatorContainer>
-    // <Navi
-    
+
       <View style={styles.openingPage}>
         <ImageBackground source={require('../../assets/bg.png')} resizeMode='repeat' imageStyle= {{opacity:0.1}}>
           <View style={styles.container}>
@@ -35,11 +33,8 @@ export const DashboardPage = ({ route , navigation }) => {
               </View>
           </View>
 
-          {/* <BottomTabNavigator/> */}
         </ImageBackground>
       </View>
-
-    // </NavigatorContainer>
   );
 };
 
